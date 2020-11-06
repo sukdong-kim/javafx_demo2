@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +16,7 @@ import javafx.fxml.Initializable;
 
 public class SampleController implements Initializable {
 	ObservableList<String> comboBoxList = 
-			FXCollections.observableArrayList("페페로니 피자, 15,000원","포테이토 피자, 15,000원","불고기 피자, 18,000원","콤보 피자, 20,000원");
+			FXCollections.observableArrayList("페페로니 피자: 15,000원","포테이토 피자: 15,000원","불고기 피자: 18,000원","콤보 피자: 20,000원");
     @FXML
     private ComboBox<String> comboBox;
 
@@ -39,6 +40,9 @@ public class SampleController implements Initializable {
 
     @FXML
     private TextArea ta;
+    
+    @FXML
+    private Label lab;
 
     String sel1 = "";
     String sel2 = "";
@@ -49,7 +53,7 @@ public class SampleController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO Auto-generated method stub
 		
-		comboBox.setValue("페페로니 피자, 15,000원");
+		comboBox.setValue("피자선택");
 		comboBox.setItems(comboBoxList);
 	
 	}
@@ -58,21 +62,23 @@ public class SampleController implements Initializable {
     void onClickbombo(ActionEvent event) {
     	String sel = comboBox.getValue() ;
        	ta.appendText(sel+"를 선택 \n");
-    	if(sel.equals("페페로니 피자, 15,000원"))
+    	if(sel.equals("페페로니 피자: 15,000원"))
     		num1 += 15000;
-    	else if(sel.equals("포테이토 피자, 15,000원"))
+    	else if(sel.equals("포테이토 피자: 15,000원"))
     		num1 += 15000;
-    	else if(sel.equals("불고기 피자, 18,000원"))
+    	else if(sel.equals("불고기 피자: 18,000원"))
     		num1 += 18000;
-    	else if(sel.equals("콤보 피자, 20,000원"))
+    	else if(sel.equals("콤보 피자: 20,000원"))
     		num1 += 20000;
     	sel1+=sel +"\n";
     }
     
     @FXML
     void onClickb1(ActionEvent event) {
+    	ta.setText("주문 내역");
     	ta.appendText("\n\n"+ sel1 + sel2 +"\n");
     	ta.appendText("\n total = "+(num1+num2) +"원 입니다.\n");
+    	lab.setText(""+(num1+num2));
     }
 
     @FXML
@@ -100,42 +106,42 @@ public class SampleController implements Initializable {
     @FXML
     void onClickch1(ActionEvent event) {
     	if(ch1.isSelected()) {
-    		ta.appendText(ch1.getText()+"를 선택 \n");
+    		ta.appendText(ch1.getText()+" 선택 \n");
     		num2+=2000;
-        	sel2+=ch1.getText()+"를 선택\n";
+        	sel2+=ch1.getText()+"\n";
     	}
     	if(ch1.isSelected()== false) {
-    		ta.appendText(ch1.getText()+"를 취소 \n");
+    		ta.appendText(ch1.getText()+" 취소 \n");
     		num2-=2000;
-        	sel2+=ch1.getText()+"를 취소\n";
+        	sel2+=ch1.getText()+" 취소\n";
     	}
     }
 
     @FXML
     void onClickch2(ActionEvent event) {
     	if(ch2.isSelected()) {
-    		ta.appendText(ch2.getText()+"를 선택 \n");
+    		ta.appendText(ch2.getText()+" 선택 \n");
     		num2+=1000;
-        	sel2+=ch2.getText()+"를 선택\n";
+        	sel2+=ch2.getText()+"\n";
     	}
     	if(ch2.isSelected()== false) {
-    		ta.appendText(ch2.getText()+"를 취소 \n");
+    		ta.appendText(ch2.getText()+" 취소 \n");
     		num2-=1000;
-        	sel2+=ch2.getText()+"를 취소\n";
+        	sel2+=ch2.getText()+" 취소\n";
     	}
     }
 
     @FXML
     void onClickch3(ActionEvent event) {
     	if(ch3.isSelected()) {
-    		ta.appendText(ch3.getText()+"를 선택 \n");
+    		ta.appendText(ch3.getText()+" 선택 \n");
     		num2+=500;
-        	sel2+=ch3.getText()+"를 선택\n";
+        	sel2+=ch3.getText()+"\n";
     	}
     	if(ch3.isSelected()== false) {
-    		ta.appendText(ch3.getText()+"를 취소 \n");
+    		ta.appendText(ch3.getText()+" 취소 \n");
     		num2-=500;
-        	sel2+=ch3.getText()+"를 취소\n";
+        	sel2+=ch3.getText()+" 취소\n";
     	}
 
     }
