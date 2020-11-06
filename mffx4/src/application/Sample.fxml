@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="600.0" spacing="20.0">
+      <VBox prefHeight="800.0" prefWidth="600.0" spacing="20.0">
          <children>
             <Label text="어떤피자를 주문하시겠습니까?" textFill="#343497">
                <VBox.margin>
@@ -69,7 +69,7 @@
                      </font></Button>
                </children>
             </HBox>
-            <TextArea fx:id="ta" prefHeight="348.0" prefWidth="600.0" style="-fx-background-color: yellow;">
+            <TextArea fx:id="ta" prefHeight="555.0" prefWidth="600.0" style="-fx-background-color: yellow;">
                <font>
                   <Font name="Gulim" size="18.0" />
                </font>

@@ -57,39 +57,38 @@ public class SampleController implements Initializable {
     @FXML
     void onClickbombo(ActionEvent event) {
     	String sel = comboBox.getValue() ;
-    	sel1 += sel ;
+       	ta.appendText(sel+"를 선택 \n");
     	if(sel.equals("페페로니 피자, 15,000원"))
-    		num1 = 15000;
+    		num1 += 15000;
     	else if(sel.equals("포테이토 피자, 15,000원"))
-    		num1 = 15000;
+    		num1 += 15000;
     	else if(sel.equals("불고기 피자, 18,000원"))
-    		num1 = 18000;
+    		num1 += 18000;
     	else if(sel.equals("콤보 피자, 20,000원"))
-    		num1 = 20000;
-    	
+    		num1 += 20000;
+    	sel1+=sel +"\n";
     }
     
     @FXML
     void onClickb1(ActionEvent event) {
-    	ta.appendText(sel1+"\n");
-    	ta.appendText(sel2);
-    	ta.appendText("\ntotal = "+(num1+num2) +"원 입니다.");
+    	ta.appendText("\n\n"+ sel1 + sel2 +"\n");
+    	ta.appendText("\n total = "+(num1+num2) +"원 입니다.\n");
     }
 
     @FXML
     void onClickb2(ActionEvent event) {
-    	sel1="";
-    	sel2="";
-    	ta.setText("");
+
     	if(ch1.isSelected())
     		ch1.fire();
     	if(ch2.isSelected())
     		ch2.fire();
     	if(ch3.isSelected())
     		ch3.fire();
+    	sel1="";
+    	sel2="";
     	num1=0;
     	num2=0;
-   
+    	ta.setText("");
  
     }
     @FXML
@@ -101,25 +100,44 @@ public class SampleController implements Initializable {
     @FXML
     void onClickch1(ActionEvent event) {
     	if(ch1.isSelected()) {
-    		sel2 += ch1.getText() + "\n";
+    		ta.appendText(ch1.getText()+"를 선택 \n");
     		num2+=2000;
+        	sel2+=ch1.getText()+"를 선택\n";
+    	}
+    	if(ch1.isSelected()== false) {
+    		ta.appendText(ch1.getText()+"를 취소 \n");
+    		num2-=2000;
+        	sel2+=ch1.getText()+"를 취소\n";
     	}
     }
 
     @FXML
     void onClickch2(ActionEvent event) {
     	if(ch2.isSelected()) {
-    		sel2 += ch2.getText() + "\n";
+    		ta.appendText(ch2.getText()+"를 선택 \n");
     		num2+=1000;
+        	sel2+=ch2.getText()+"를 선택\n";
+    	}
+    	if(ch2.isSelected()== false) {
+    		ta.appendText(ch2.getText()+"를 취소 \n");
+    		num2-=1000;
+        	sel2+=ch2.getText()+"를 취소\n";
     	}
     }
 
     @FXML
     void onClickch3(ActionEvent event) {
     	if(ch3.isSelected()) {
-    		sel2 += ch3.getText() + "\n";
+    		ta.appendText(ch3.getText()+"를 선택 \n");
     		num2+=500;
+        	sel2+=ch3.getText()+"를 선택\n";
     	}
+    	if(ch3.isSelected()== false) {
+    		ta.appendText(ch3.getText()+"를 취소 \n");
+    		num2-=500;
+        	sel2+=ch3.getText()+"를 취소\n";
+    	}
+
     }
 	
 }
