@@ -27,16 +27,10 @@ public class SampleController implements Initializable {
 	@FXML    private Button b3;
 	@FXML    private TextArea ta; 
 	@FXML    private Label lab;
-	@FXML
-	private ToggleGroup size;
-	@FXML
-	private RadioButton r2;
-
-	@FXML
-	private RadioButton r3;
-
-	@FXML
-	private RadioButton r1;
+	@FXML	private ToggleGroup size;
+	@FXML	private RadioButton r2;
+	@FXML	private RadioButton r3;
+	@FXML	private RadioButton r1;
 
 	ObservableList<String> comboBoxList = 
 			FXCollections.observableArrayList("페페로니 피자: 12,000원","포테이토 피자: 15,000원","불고기 피자: 18,000원","콤보 피자: 20,000원");
@@ -85,6 +79,23 @@ public class SampleController implements Initializable {
 
 	@FXML
 	void onClickb1(ActionEvent event) {
+		if(r1.isSelected())
+		{
+			ta.appendText(r1.getText()+" 선택 \n");
+			sel3+=r1.getText()+"\n";
+		}
+		if(r2.isSelected())
+		{
+			ta.appendText(r2.getText()+" 선택 \n");
+			sel3+=r2.getText()+"\n";
+			num3=1000;
+		}
+		if(r3.isSelected())
+		{
+			ta.appendText(r3.getText()+" 선택 \n");
+			sel3+=r3.getText()+"\n";
+			num3=2000;
+		}
 		Integer number = num1+num2+num3;
 		NumberFormat numberFormatter;
 		numberFormatter = NumberFormat.getNumberInstance();
@@ -94,6 +105,7 @@ public class SampleController implements Initializable {
 		ta.appendText("\n\n"+ sel1 + sel3 + sel2 +"\n");
 		ta.appendText("\n total = "+ quantityOut +"원 입니다.\n");
 		lab.setText(quantityOut);
+
 	}
 
 	@FXML
@@ -105,16 +117,6 @@ public class SampleController implements Initializable {
 			ch2.fire();
 		if(ch3.isSelected())
 			ch3.fire();
-		/*
-		 * 	
-		 *     	if(r1.isSelected())
-    		r1.fire();
-    	if(r2.isSelected())
-    		r2.fire();
-    	if(r3.isSelected())
-    		r3.fire();
-		 */
-
 
 		sel1="";
 		sel2="";
@@ -130,11 +132,17 @@ public class SampleController implements Initializable {
 	void onClickb3(ActionEvent event) {
 		System.exit(0);
 	}
-
-
+/*
 	@FXML
 	void radioButtonChanged(ActionEvent event) {
+		
 		if(size.getSelectedToggle().equals(r1)) 
+		{
+			ta.appendText(r1.getText()+" 선택 \n");
+			sel3+=r1.getText()+"\n";
+		} 
+		
+		if(r1.isSelected()) 
 		{
 			ta.appendText(r1.getText()+" 선택 \n");
 			sel3+=r1.getText()+"\n";
@@ -153,54 +161,22 @@ public class SampleController implements Initializable {
 			sel3+=r3.getText()+"\n";
 			num3+=2000;
 		}
-
-
 	}
 
-
-	/*
-    @FXML
-    void onClickr1(ActionEvent event) {
-    	if(r1.isSelected()) {
-    		ta.appendText(r1.getText()+" 선택 \n");
-        	sel3+=r1.getText()+"\n";
-    	}
-    	if(r1.isSelected()== false) {
-    		ta.appendText(r1.getText()+" 취소 \n");
-        	sel3+=r1.getText()+" 취소\n";
-    	}
-
-    }
-
-    @FXML
-    void onClickr2(ActionEvent event) {
-    	if(r2.isSelected()) {
-    		ta.appendText(r2.getText()+" 선택 \n");
-        	sel3+=r2.getText()+"\n";
-        	num3+=1000;
-    	}
-    	if(r2.isSelected()== false) {
-    		ta.appendText(r2.getText()+" 취소 \n");
-        	sel3+=r2.getText()+" 취소\n";
-        	num3-=1000;
-    	}
-    }
-
-    @FXML
-    void onClickr3(ActionEvent event) {
-    	if(r3.isSelected()) {
-    		ta.appendText(r3.getText()+" 선택 \n");
-        	sel3+=r3.getText()+"\n";
-        	num3+=2000;
-    	}
-    	if(r3.isSelected()== false) {
-    		ta.appendText(r3.getText()+" 취소 \n");
-        	sel3+=r3.getText()+" 취소\n";
-        	num3-=2000;
-    	}
-    }
-
-	 */
+	@FXML
+	void radioButtonChanged1(ActionEvent event) {
+		if(r1.isSelected())
+			System.out.println("r1");
+	}
+	@FXML
+	void radioButtonChanged2(ActionEvent event) {
+		System.out.println("r2");
+	}
+	@FXML
+	void radioButtonChanged3(ActionEvent event) {
+		System.out.println("r3");
+	}
+	*/
 
 	@FXML
 	void onClickch1(ActionEvent event) {
